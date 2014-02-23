@@ -44,5 +44,5 @@
   `(def ~name
         ~(expand (walk-raw form))))
 
-(defmacro range* [n]
-  `(array ~@(range n)))
+(defmacro range* [& args]
+  `(array ~@(apply range args)))

@@ -4,15 +4,15 @@
                                  obj arr def*]]
                [purnam.test :only [fact facts]]))
 
-[[:chapter {:title "purnam.core" :tag "purnam-js"}]]
+[[:chapter {:title "purnam.core" :tag "purnam-core"}]]
 
-[[:section {:title "init" :tag "init-js"}]]
+[[:section {:title "init" :tag "init"}]]
 
-"There is a dependency on [purnam.native](#purnam-cljs) and so the following MUST be placed in your project namespace:"
+"purnam.core are packaged as macros. As of version 0.4.0, there are no dependencies on other libraries. You can add them into your clojurescript project via the namespace declaration:"
 
 (comment
-  (:require [purnam.core])
-  (:use-macros [purnam.core :only [obj arr]]))
+  (ns app.example
+    (:use-macros [purnam.core :only [? ?> ! !> f.n def.n do.n obj arr def* range*]])))
 
 [[:section {:title "obj"}]]
 
@@ -286,11 +286,11 @@
         (+ o.val.a o.val.b)))
     => 3)
 
-  [[:section {:title "raw forms" :tag "raw"}]]
+  [[:section {:title "def*" :tag "raw"}]]
   
-  (facts [[{:doc "raw"}]]
+  (facts [[{:doc "def*"}]]
 
-    "For those that want to write clojurescript with `{}` interpreted as js objects and `[]` interpreted as arrays, then the raw form is very handy. `def*`"
+    "For those that want to write clojurescript with `{}` interpreted as js objects and `[]` interpreted as arrays, then the raw declaration form `def*` is very handy."
 
     (def* raw-fn (fn [o] (! o.val [1 2 3 4 5])))
     
@@ -304,7 +304,6 @@
                      :this-fn (fn [] this.a)}))
     [(!> o.b.self-fn) (!> o.b.this-fn)]  => [10 20]
 
-    "The raw js forms will only recognise the `cljs.core` vector binding constructs: `let`, `loop`, `for`, `doseq`, `if-let` and `when-let`. Any custom macros within a raw form will run into problems."
-  )
+  "The raw js forms will only recognise the `cljs.core` vector binding constructs: `let`, `loop`, `for`, `doseq`, `if-let` and `when-let`. Any custom macros within a raw form will run into problems.")
 
 

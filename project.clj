@@ -1,5 +1,5 @@
 (defproject im.chit/purnam.core "0.4.0"
-  :description "Common utility functions for purnam"  
+  :description "Friendly javascript interop for clojurescript"  
   :url "http://www.github.com/purnam/purnam.core"
   :license {:name "The MIT License"
             :url "http://opensource.org/licencses/MIT"}
@@ -11,6 +11,13 @@
                                   [midje "1.6.0"]]
                    :plugins [[lein-cljsbuild "1.0.0"]
                              [lein-midje "3.1.3"]]}}
+  :documentation {:files {"doc/index"
+                         {:input "test/cljs/midje_doc/purnam_core.cljs"
+                          :title "purnam.core"
+                          :sub-title "Friendly javascript interop for clojurescript"
+                          :author "Chris Zheng"
+                          :email  "z@caudate.me"
+                          :tracking "UA-31320512-2"}}}
   :cljsbuild {:builds [{:source-paths ["src", "test/cljs"]
                        :compiler {:output-to "test/purnam.core.js"
                                   :optimizations :whitespace
