@@ -8,8 +8,8 @@
             [purnam.core.raw :refer [walk-raw]]))
 
 (add-symbols purnam.common/*exclude-expansion*
-             '[purnam.core ? ?> ! !> f.n def.n do.n obj arr def*]
-             '? '?> '! '!> 'f.n 'def.n 'do.n 'obj 'arr 'def*)
+             '[purnam.core ? ?> ! !> f.n def.n do.n obj arr def* def*n f*n do*n]
+             '? '?> '! '!> 'f.n 'def.n 'do.n 'obj 'arr 'def* 'def*n 'f*n 'do*n)
 
 (defmacro ? [sym]
   (expand-sym sym))
@@ -32,7 +32,7 @@
 
 (defmacro do.n [& body]
   `(do ~@(expand body)))
-
+    
 (defmacro obj [& args]
   (let [m (apply hash-map args)]
     (expand (make-var m))))
@@ -46,3 +46,13 @@
 
 (defmacro range* [& args]
   `(array ~@(apply range args)))
+
+(defmacro def*n [name args & body]
+  `(defn ~name ~args
+         ~@(expand (walk-raw body))))
+
+(defmacro f*n [args & body]
+  `(fn ~args ~@(expand (walk-raw body))))
+
+(defmacro do*n [& body]
+  `(do ~@(expand (walk-raw body))))

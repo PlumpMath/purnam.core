@@ -1,15 +1,23 @@
-# purnam.common
+# purnam.core
 
-[![Build Status](https://travis-ci.org/purnam/purnam.common.png?branch=master)](https://travis-ci.org/purnam/purnam.common)
+[![Build Status](https://travis-ci.org/purnam/purnam.common.png?branch=master)](https://travis-ci.org/purnam/purnam.core)
 
-Common utility functions for purnam
+Friendly javascript interop for clojurescript
 
 ## Usage
 
-TBD
+Stable Version: 
+
+    [im.chit/purnam.core "0.4.1"]
+
+Documentation:
+
+- [API](http://purnam.github.io/purnam.core/)
+- [Sample Game](https://github.com/purnam/example.purnam.game)
+
 
 ## License
 
-Copyright © 2014 Chris
+Copyright © 2014 Chris Zheng
 
 Distributed under the The MIT License.
