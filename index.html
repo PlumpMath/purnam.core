@@ -1,0 +1,593 @@
+<html><head><meta content="chrome=1" http-equiv="X-UA-Compatible" /><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport" /><title>purnam.core</title><style>body {
+  padding:50px;
+  font:14px/1.5 Helvetica, Arial, sans-serif;
+  color:#777;
+  font-weight:300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color:#222;
+  margin:0 0 20px;
+}
+
+p, ul, ol, table, pre, dl {
+  margin:0 0 20px;
+}
+
+h1, h2, h3 {
+  line-height:1.1;
+}
+
+h1 {
+  font-size:28px;
+}
+
+h2 {
+  color:#393939;
+}
+
+h4, h5, h6 {
+  color:#494949;
+  margin:0;
+}
+
+header h4{
+  margin: 10 0 0 0px;
+}
+
+a {
+  color:#39c;
+  font-weight:400;
+  text-decoration:none;
+}
+
+a small {
+  font-size:11px;
+  color:#777;
+  margin-top:-0.6em;
+  display:block;
+}
+
+.wrapper {
+  width:860px;
+  margin:0 auto;
+}
+
+.figure div.img {
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+blockquote {
+  border-left:1px solid #e5e5e5;
+  margin:0;
+  padding:0 0 0 20px;
+  font-style:italic;
+}
+
+code, pre {
+  font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
+  color:#333;
+  font-size:12px;
+}
+
+pre {
+  padding:8px 15px;
+  background: #f8f8f8;  
+  border-radius:5px;
+  border:1px solid #e5e5e5;
+  overflow-x: auto;
+}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+}
+
+th, td {
+  text-align:left;
+  padding:5px 10px;
+  border-bottom:1px solid #e5e5e5;
+}
+
+dt {
+  color:#444;
+  font-weight:700;
+}
+
+th {
+  color:#444;
+}
+
+img {
+  max-width:100%;
+}
+
+header {
+  width:270px;
+  float:left;
+  /*position:fixed;*/
+}
+
+header ul {
+  list-style:none;
+  height:40px;
+  
+  padding:0;
+  
+  background: #eee;
+  background: -moz-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#dddddd));
+  background: -webkit-linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
+  background: -o-linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
+  background: -ms-linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
+  background: linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
+  
+  border-radius:5px;
+  border:1px solid #d2d2d2;
+  box-shadow:inset #fff 0 1px 0, inset rgba(0,0,0,0.03) 0 -1px 0;
+  width:270px;
+}
+
+header li {
+  width:89px;
+  float:left;
+  border-right:1px solid #d2d2d2;
+  height:40px;
+}
+
+header ul a {
+  line-height:1;
+  font-size:11px;
+  color:#999;
+  display:block;
+  text-align:center;
+  padding-top:6px;
+  height:40px;
+}
+
+strong {
+  font-weight:700;
+}
+
+header ul li + li {
+  width:88px;
+  border-left:1px solid #fff;
+}
+
+header ul li + li + li {
+  border-right:none;
+  width:89px;
+}
+
+header ul a strong {
+  font-size:14px;
+  display:block;
+  color:#222;
+}
+
+section {
+  width: 60%;
+  float:right;
+  padding-bottom:50px;
+  padding-right: 10%;
+}
+
+small {
+  font-size:11px;
+}
+
+hr {
+  border:0;
+  background:#e5e5e5;
+  height:1px;
+  margin:0 0 20px;
+}
+
+footer {
+  width:270px;
+  float:left;
+  position:fixed;
+  bottom:50px;
+}
+
+header div.heading {
+  display:none;
+}
+
+
+@media print, screen and (max-width: 960px) {
+  
+  div.wrapper {
+    width:auto;
+    margin:0;
+  }
+  
+  header, section, footer {
+    float:none;
+    position:static;
+    width:auto;
+  }
+  
+  header div.heading {
+    display:block;
+  }
+    
+  section div.heading {
+    display:none;
+  }
+  
+  section {
+    border:1px solid #e5e5e5;
+    border-width:1px 0;
+    padding:20px 0;
+    margin:0 0 20px;
+  }
+  
+  header a small {
+    display:inline;
+  }
+  
+  header ul {
+    position:absolute;
+    right:50px;
+    top:52px;
+  }
+}
+
+@media print, screen and (max-width: 720px) {
+  body {
+    word-wrap:break-word;
+  }
+  
+  header {
+    padding:0;
+  }
+  
+  header ul, header p.view {
+    position:static;
+  }
+  
+  pre, code {
+    word-wrap:normal;
+  }
+}
+
+@media print, screen and (max-width: 480px) {
+  body {
+    padding:15px;
+  }
+  
+  header ul {
+    display:none;
+  }
+}
+
+@media print {
+  body {
+    padding:0.4in;
+    font-size:12pt;
+    color:#444;
+  }
+}
+
+
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold; } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+
+.type-csharp .highlight .k { color: #0000FF }
+.type-csharp .highlight .kt { color: #0000FF }
+.type-csharp .highlight .nf { color: #000000; font-weight: normal }
+.type-csharp .highlight .nc { color: #2B91AF }
+.type-csharp .highlight .nn { color: #000000 }
+.type-csharp .highlight .s { color: #A31515 }
+.type-csharp .highlight .sc { color: #A31515 }
+
+
+</style></head><body><header><div class="heading"><h1>purnam.core</h1><h3>Friendly javascript interop for clojurescript</h3><hr /><div class="info"><h5>Author: Chris Zheng<b>&nbsp;&nbsp;<a href="mailto:z@caudate.me">(z@caudate.me)</a></b></h5><h5>Library: v0.4.1</h5><h5>Date: 28 February 2014</h5><h5>Website: <a href="http://www.github.com/purnam/purnam.core">http://www.github.com/purnam/purnam.core</a></h5><h5>Generated By: <a href="http://www.github.com/zcaudate/lein-midje-doc">MidjeDoc</a></h5></div><br /><hr /></div><h4><a href="#introduction">1 &nbsp; Introduction</a></h4><h4><a href="#installation">2 &nbsp; Installation</a></h4><h4><a href="#purnam-core">3 &nbsp; API</a></h4><h5>&nbsp;&nbsp;<i><a href="#init-core">3.1 &nbsp; init</a></i></h5><h5>&nbsp;&nbsp;<i><a href="#obj">3.2 &nbsp; obj</a></i></h5><h5>&nbsp;&nbsp;<i><a href="#arr">3.3 &nbsp; arr</a></i></h5><h5>&nbsp;&nbsp;<i><a href="#getter">3.4 &nbsp; getter - ?</a></i></h5><h5>&nbsp;&nbsp;<i><a href="#setter">3.5 &nbsp; setter - !</a></i></h5><h5>&nbsp;&nbsp;<i><a href="#call">3.6 &nbsp; call - ?></a></i></h5><h5>&nbsp;&nbsp;<i><a href="#call-on">3.7 &nbsp; call on - !></a></i></h5><h5>&nbsp;&nbsp;<i><a href="#this">3.8 &nbsp; this</a></i></h5><h5>&nbsp;&nbsp;<i><a href="#self">3.9 &nbsp; self</a></i></h5><h5>&nbsp;&nbsp;<i><a href="#dot-defn">3.10 &nbsp; def.n</a></i></h5><h5>&nbsp;&nbsp;<i><a href="#dot-fn">3.11 &nbsp; f.n</a></i></h5><h5>&nbsp;&nbsp;<i><a href="#dot-do">3.12 &nbsp; do.n</a></i></h5><h5>&nbsp;&nbsp;<i><a href="#raw">3.13 &nbsp; raw forms</a></i></h5><br /></header><section><div class="heading"><h1>purnam.core</h1><h3>Friendly javascript interop for clojurescript</h3><hr /><div class="info"><h5>Author: Chris Zheng<b>&nbsp;&nbsp;<a href="mailto:z@caudate.me">(z@caudate.me)</a></b></h5><h5>Library: v0.4.1</h5><h5>Date: 28 February 2014</h5><h5>Website: <a href="http://www.github.com/purnam/purnam.core">http://www.github.com/purnam/purnam.core</a></h5><h5>Generated By: <a href="http://www.github.com/zcaudate/lein-midje-doc">MidjeDoc</a></h5></div><br /><hr /></div><div><a name="introduction"></a><h2><b>1 &nbsp;&nbsp; Introduction</b></h2></div><div><p><a href='https://www.github.com/purnam/purnam.core'>purnam.core</a>, along <a href='https://www.github.com/purnam/purnam.test'>purnam.test</a> and <a href='https://www.github.com/purnam/purnam.native'>purnam.native</a> form the nucleus of the <a href='[purnam.core](https://www.github.com/purnam/purnam'>purnam</a> extensions suite - designed to provide better clojurescript/javascript interop.</p></div><div><a name="installation"></a><h2><b>2 &nbsp;&nbsp; Installation</b></h2></div><div><p>To use just the test functionality, add to <code>project.clj</code> dependencies:</p><p>  <code>&#91;im.chit/purnam.core</code> &quot;<code>0.4.1</code>&quot;<code>&#93;</code> </p><p>The library is also included when <code>&#91;im.chit/purnam</code> &quot;<code>0.4.1</code>&quot;<code>&#93;</code> is used.</p></div><div><a name="purnam-core"></a><h2><b>3 &nbsp;&nbsp; API</b></h2></div><div><a name="init-core"></a><h3>3.1 &nbsp;&nbsp; init</h3></div><div><p><code>purnam.core</code> extensions are packaged as macros. They are accessible via <code>:use-macro</code> declaration.</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="ss">:use-macros</span> <span class="p">[</span><span class="nv">purnam.core</span> <span class="ss">:only</span> <span class="p">[</span><span class="nv">?</span> <span class="nv">?&gt;</span> <span class="nv">!</span> <span class="nv">!&gt;</span> <span class="nv">f.n</span> <span class="nv">def.n</span> <span class="nv">do.n</span>
+                                 <span class="nv">obj</span> <span class="nv">arr</span> <span class="nv">def*</span> <span class="nv">do*n</span> <span class="nv">def*n</span> <span class="nv">f*n</span><span class="p">]])</span>
+</pre></div>
+</div><div><a name="obj"></a><h3>3.2 &nbsp;&nbsp; obj</h3></div><div><p>Raw js objects are constructed in clojurescript with <code>obj</code>:</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="nf">obj</span> <span class="s">"key1"</span> <span class="s">"val1"</span> <span class="s">"key2"</span> <span class="s">"val2"</span><span class="p">)</span>
+
+<span class="nv">=&gt;</span> <span class="p">(</span><span class="nf">js*</span> <span class="s">"{key1: &#39;val1&#39;, key2: &#39;val2&#39;}"</span><span class="p">)</span>
+</pre></div>
+</div><div><p>Keywords can be used instead of strings for improved legibility. The previous example can also be written as:</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="nf">obj</span> <span class="ss">:key1</span> <span class="s">"val1"</span> <span class="ss">:key2</span> <span class="s">"val2"</span><span class="p">)</span>
+
+<span class="nv">=&gt;</span> <span class="p">(</span><span class="nf">js*</span> <span class="s">"{key1: &#39;val1&#39;, key2: &#39;val2&#39;}"</span><span class="p">)</span>
+</pre></div>
+</div><div><p>Symbol are evalutated. This will produce an equivalent object to the previous examples:</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">s1</span> <span class="s">"key1"</span>
+      <span class="nv">s2</span> <span class="s">"key2"</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">obj</span> <span class="nv">s1</span> <span class="s">"val1"</span> <span class="nv">s2</span> <span class="s">"val2"</span><span class="p">))</span>
+
+<span class="nv">=&gt;</span> <span class="p">(</span><span class="nf">js*</span> <span class="s">"{key1: &#39;val1&#39;, key2: &#39;val2&#39;}"</span><span class="p">)</span>
+</pre></div>
+</div><div><p>Note that the symbols have to represent strings to get the same output as previous. The following WILL NOT construct the equivalent object as before:</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">s1</span> <span class="ss">:key1</span>
+      <span class="nv">s2</span> <span class="ss">:key2</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">obj</span> <span class="nv">s1</span> <span class="s">"val1"</span> <span class="nv">s2</span> <span class="s">"val2"</span><span class="p">))</span>
+
+<span class="nv">=&gt;</span> <span class="o">#</span><span class="p">(</span><span class="nb">not </span><span class="p">(</span><span class="nb">= </span><span class="nv">%</span> <span class="p">(</span><span class="nf">js*</span> <span class="s">"{key1: &#39;val1&#39;, key2: &#39;val2&#39;}"</span><span class="p">)))</span>
+</pre></div>
+</div><div><p>The <code>obj</code> form can be used to set up nested js objects and arrays primitives. Using <code>&#91;&#93;</code> with the form will create a new js array, <code>{}</code> will create a new js object.</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="nf">obj</span> <span class="ss">:data</span> <span class="p">[{</span><span class="ss">:id</span> <span class="mi">1</span> <span class="ss">:name</span> <span class="s">"one"</span><span class="p">}</span>
+            <span class="p">{</span><span class="ss">:id</span> <span class="mi">2</span> <span class="ss">:name</span> <span class="s">"two"</span><span class="p">}])</span>
+
+<span class="nv">=&gt;</span> <span class="p">(</span><span class="nf">js*</span> <span class="s">"{data: [{id:1,name:&#39;one&#39;},</span>
+<span class="s">                 {id:2,name:&#39;two&#39;}]}"</span><span class="p">)</span>
+</pre></div>
+</div><div><p>The nesting notation alleviates the use of the clj-&gt;js transform for constructing large javascipt variables. In this way, deeply nested javascript object structures can be created in clojurescript in the same way clojure maps and arrays are created.</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="nf">obj</span> <span class="ss">:name</span> <span class="s">"l1"</span> <span class="ss">:data</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span>
+     <span class="ss">:next</span> <span class="p">{</span><span class="ss">:name</span> <span class="s">"l2"</span> <span class="ss">:data</span> <span class="p">[</span><span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">]</span>
+            <span class="ss">:next</span> <span class="p">{</span><span class="ss">:name</span> <span class="s">"l3"</span> <span class="ss">:data</span> <span class="p">[</span><span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span><span class="p">]}})</span>
+
+<span class="nv">=&gt;</span> <span class="p">(</span><span class="nf">js*</span> <span class="s">"{name: &#39;l1&#39;,</span>
+<span class="s">          data: [1,2,3],</span>
+<span class="s">          next: {name: &#39;l2&#39;,</span>
+<span class="s">                 data: [4,5,6],</span>
+<span class="s">                 next: {name: &#39;l3&#39;,</span>
+<span class="s">                        data: [7,8,9]}}}"</span><span class="p">)</span>
+</pre></div>
+</div><div><a name="arr"></a><h3>3.3 &nbsp;&nbsp; arr</h3></div><div><p><code>arr</code> constructs a javascript array primitive, the same way as <code>array</code></p></div><div><div class="highlight"><pre><span class="p">(</span><span class="nf">arr</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="nv">=&gt;</span> <span class="p">(</span><span class="nf">js*</span> <span class="s">"[1,2,3,4,5]"</span><span class="p">)</span>
+</pre></div>
+</div><div><p><code>arr</code> supports nesting of native objects and arrays much like <code>obj</code></p></div><div><div class="highlight"><pre><span class="p">(</span><span class="nf">arr</span> <span class="p">{</span><span class="ss">:data</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">]}</span>
+     <span class="p">{</span><span class="ss">:data</span> <span class="p">[</span><span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span> <span class="mi">10</span><span class="p">]})</span>
+
+<span class="nv">=&gt;</span> <span class="p">(</span><span class="nf">js*</span> <span class="s">"[{data: [1,2,3,4,5]},</span>
+<span class="s">            {data: [6,7,8,9,10]}]"</span><span class="p">)</span>
+</pre></div>
+</div><div><a name="getter"></a><h3>3.4 &nbsp;&nbsp; getter - ?</h3></div><div><p><code>?</code> provides javascript-like dot notation access for objects</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">o</span> <span class="p">(</span><span class="nf">obj</span> <span class="ss">:a</span> <span class="mi">1</span> <span class="ss">:b</span> <span class="mi">2</span> <span class="ss">:c</span> <span class="mi">3</span><span class="p">)]</span>
+  <span class="p">(</span><span class="nb">+ </span><span class="p">(</span><span class="nf">?</span> <span class="nv">o.a</span><span class="p">)</span> <span class="p">(</span><span class="nf">?</span> <span class="nv">o.b</span><span class="p">)</span> <span class="p">(</span><span class="nf">?</span> <span class="nv">o.c</span><span class="p">)))</span>
+
+<span class="nv">=&gt;</span> <span class="mi">6</span>
+</pre></div>
+</div><div><p>Pipe notation <code>object.|key|</code> provides symbol lookup</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">o</span> <span class="p">(</span><span class="nf">obj</span> <span class="ss">:a</span> <span class="mi">1</span> <span class="ss">:b</span> <span class="mi">2</span> <span class="ss">:c</span> <span class="mi">3</span><span class="p">)</span>
+      <span class="nv">k</span> <span class="s">"a"</span><span class="p">]</span>
+  <span class="p">(</span><span class="nb">- </span><span class="p">(</span><span class="nf">?</span> <span class="nv">o.b</span><span class="p">)</span> <span class="p">(</span><span class="nf">?</span> <span class="nv">o.</span><span class="err">|</span><span class="nv">k</span><span class="err">|</span><span class="p">)))</span>
+
+<span class="nv">=&gt;</span> <span class="mi">1</span>
+</pre></div>
+</div><div><p><code>?</code> also works on javascript arrays</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">o</span> <span class="p">(</span><span class="nf">arr</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span> <span class="p">[</span><span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">]</span> <span class="p">[</span><span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span><span class="p">])]</span>
+   <span class="p">(</span><span class="nb">- </span><span class="p">(</span><span class="nf">?</span> <span class="nv">o.2.2</span><span class="p">)</span> <span class="p">(</span><span class="nf">?</span> <span class="nv">o.0.0</span><span class="p">)))</span>
+
+<span class="nv">=&gt;</span> <span class="mi">8</span>
+</pre></div>
+</div><div><p>If any of the keys are missing, <code>?</code> will not throw an object <code>undefined</code> exception but will return <code>nil</code>.</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">o</span> <span class="p">(</span><span class="nf">obj</span><span class="p">)]</span>
+  <span class="p">(</span><span class="nf">?</span> <span class="nv">o.any.nested.syntax</span><span class="p">))</span>
+
+<span class="nv">=&gt;</span> <span class="nv">nil?</span>
+</pre></div>
+</div><div><a name="setter"></a><h3>3.5 &nbsp;&nbsp; setter - !</h3></div><div><p>The <code>!</code> form provides setting using dot notation:</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">o</span> <span class="p">(</span><span class="nf">obj</span><span class="p">)]</span>
+  <span class="p">(</span><span class="nf">!</span> <span class="nv">o.a</span> <span class="mi">6</span><span class="p">)</span>  
+  <span class="p">(</span><span class="nf">?</span> <span class="nv">o.a</span><span class="p">))</span>
+
+<span class="nv">=&gt;</span> <span class="mi">6</span>
+</pre></div>
+</div><div><p>Pipe notation <code>object.|key|</code> also works</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">o</span> <span class="p">(</span><span class="nf">obj</span><span class="p">)</span>
+      <span class="nv">k</span> <span class="s">"a"</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">!</span> <span class="nv">o.</span><span class="err">|</span><span class="nv">k</span><span class="err">|</span> <span class="mi">6</span><span class="p">)</span>
+  <span class="p">(</span><span class="nf">?</span> <span class="nv">o.a</span><span class="p">))</span>
+
+<span class="nv">=&gt;</span> <span class="mi">6</span>
+</pre></div>
+</div><div><p>If there is no value or the value is <code>nil</code>, <code>!</code> will delete the key from the object:</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">o</span> <span class="p">(</span><span class="nf">obj</span> <span class="ss">:a</span> <span class="mi">1</span><span class="p">)]</span>
+  <span class="p">(</span><span class="nf">!</span> <span class="nv">o.a</span><span class="p">)</span>
+  <span class="nv">o</span><span class="p">)</span>
+
+<span class="nv">=&gt;</span> <span class="p">(</span><span class="nf">obj</span><span class="p">)</span>
+</pre></div>
+</div><div><p>If the hierachy of nested objects does not exist, <code>!</code> will create it</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">o</span> <span class="p">(</span><span class="nf">obj</span><span class="p">)]</span>
+  <span class="p">(</span><span class="nf">!</span> <span class="nv">o.a.b.c</span> <span class="mi">10</span><span class="p">)</span>
+  <span class="p">(</span><span class="nf">?</span> <span class="nv">o.a.b.c</span><span class="p">))</span>
+
+<span class="nv">=&gt;</span> <span class="mi">10</span>
+</pre></div>
+</div><div><p>If one of the keys in the object accessor is not an object, <code>!</code> WILL NOT create nested structures</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">o</span> <span class="p">(</span><span class="nf">obj</span> <span class="ss">:a</span> <span class="mi">1</span><span class="p">)]</span>
+  <span class="p">(</span><span class="nf">!</span> <span class="nv">o.a.b.c</span> <span class="mi">10</span><span class="p">)</span>
+  <span class="p">[(</span><span class="nf">?</span> <span class="nv">o.a.b.c</span><span class="p">)</span> <span class="p">(</span><span class="nf">?</span> <span class="nv">o.a</span><span class="p">)])</span>
+
+<span class="nv">=&gt;</span> <span class="p">[</span><span class="nv">nil</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div><div><a name="call"></a><h3>3.6 &nbsp;&nbsp; call - ?></h3></div><div><p>?&gt; allows function calls with dot-notation syntax.</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">o1</span> <span class="p">(</span><span class="nf">obj</span> <span class="ss">:a</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="nv">o2</span> <span class="p">(</span><span class="nf">obj</span> <span class="ss">:a</span> <span class="mi">3</span><span class="p">)]</span>
+  <span class="p">(</span><span class="nf">?&gt;</span> <span class="nb">+ </span><span class="nv">o1.a</span> <span class="nv">o2.a</span><span class="p">))</span>
+
+<span class="nv">=&gt;</span> <span class="mi">4</span>
+</pre></div>
+</div><div><p>Inner forms within ?&gt; are automatically interpreted using dot-notation. There is no need to write <code>?</code>.</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="nf">?&gt;</span> <span class="nv">.map</span> <span class="p">(</span><span class="nf">arr</span> <span class="p">{</span><span class="ss">:a</span> <span class="mi">1</span><span class="p">}</span> <span class="p">{</span><span class="ss">:a</span> <span class="mi">2</span><span class="p">}</span> <span class="p">{</span><span class="ss">:a</span> <span class="mi">3</span><span class="p">})</span>
+         <span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">x</span><span class="p">]</span> <span class="p">(</span><span class="nb">inc </span><span class="nv">x.a</span><span class="p">)))</span> <span class="c1">;; no need to write (inc (? x.a))</span>
+
+<span class="nv">=&gt;</span> <span class="p">(</span><span class="nf">arr</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div><div><a name="call-on"></a><h3>3.7 &nbsp;&nbsp; call on - !></h3></div><div><p>The !&gt; form allows for writing dot-notation function calls.</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">a</span> <span class="p">(</span><span class="nf">arr</span><span class="p">)]</span>
+  <span class="p">(</span><span class="nf">!&gt;</span> <span class="nv">a.push</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="p">(</span><span class="nf">!&gt;</span> <span class="nv">a.push</span> <span class="mi">2</span><span class="p">)</span>
+  <span class="nv">a</span><span class="p">)</span>
+
+<span class="nv">=&gt;</span> <span class="p">(</span><span class="nf">arr</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div><div><p>We can also use pipe notation to dynamically invoke our function.</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">a</span> <span class="p">(</span><span class="nf">arr</span><span class="p">)</span>
+      <span class="nv">k</span> <span class="s">"push"</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">!&gt;</span> <span class="nv">a.</span><span class="err">|</span><span class="nv">k</span><span class="err">|</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="p">(</span><span class="nf">!&gt;</span> <span class="nv">a.</span><span class="err">|</span><span class="nv">k</span><span class="err">|</span> <span class="mi">2</span><span class="p">)</span>
+  <span class="nv">a</span><span class="p">)</span>
+
+<span class="nv">=&gt;</span> <span class="p">(</span><span class="nf">arr</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div><div><a name="this"></a><h3>3.8 &nbsp;&nbsp; this</h3></div><div><p>The rational for adding <code>this</code> back into our language is that when a piece of a program really needs to work with existing javascript libraries (and it usually does), then clojurescript should give allow the flexibility to do that without adding additional noise to the code. Use with care!</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">o1</span> <span class="p">(</span><span class="nf">obj</span> <span class="ss">:a</span> <span class="mi">10</span> 
+              <span class="ss">:func</span> <span class="p">(</span><span class="k">fn </span><span class="p">[]</span> <span class="nv">this.a</span><span class="p">))</span>
+      <span class="nv">o2</span> <span class="p">(</span><span class="nf">obj</span> <span class="ss">:a</span> <span class="mi">20</span>
+              <span class="ss">:func</span> <span class="nv">o1.func</span><span class="p">)]</span>
+  <span class="p">[(</span><span class="nf">!&gt;</span> <span class="nv">o1.func</span><span class="p">)</span> <span class="p">(</span><span class="nf">!&gt;</span> <span class="nv">o2.func</span><span class="p">)])</span>
+
+<span class="nv">=&gt;</span> <span class="p">[</span><span class="mi">10</span> <span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div><div><p>When <code>this</code> is nested, it works within the scope of the nested object</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">o</span> <span class="p">(</span><span class="nf">obj</span> <span class="ss">:a</span> <span class="mi">10</span>
+             <span class="ss">:func</span> <span class="p">(</span><span class="k">fn </span><span class="p">[]</span> <span class="nv">this.a</span><span class="p">)</span>
+             <span class="ss">:b</span> <span class="p">{</span><span class="ss">:a</span> <span class="mi">20</span>
+                 <span class="ss">:func</span> <span class="p">(</span><span class="k">fn </span><span class="p">[]</span> <span class="nv">this.a</span><span class="p">)})]</span>
+  <span class="p">[(</span><span class="nf">!&gt;</span> <span class="nv">o.func</span><span class="p">)</span> <span class="p">(</span><span class="nf">!&gt;</span> <span class="nv">o.b.func</span><span class="p">)])</span>
+
+<span class="nv">=&gt;</span> <span class="p">[</span><span class="mi">10</span> <span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div><div><a name="self"></a><h3>3.9 &nbsp;&nbsp; self</h3></div><div><p>A new existential construct has been added, it be use <strong>only</strong> within the <code>obj</code> form. It is used to refer to the object itself and does not change contexts the way <code>this</code> does. It provides a somewhat safer self reference which does not change when the context is changed.</p></div><div><p><code>self</code> is similar to <code>this</code>. Note that the two keywords both refer to the object itself.</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">o</span> <span class="p">(</span><span class="nf">obj</span> <span class="ss">:a</span> <span class="mi">1</span>
+             <span class="ss">:thisfn</span> <span class="p">(</span><span class="k">fn </span><span class="p">[]</span> <span class="nv">this.a</span><span class="p">)</span>
+             <span class="ss">:selffn</span> <span class="p">(</span><span class="k">fn </span><span class="p">[]</span> <span class="nv">self.a</span><span class="p">))]</span>
+    <span class="p">[(</span><span class="nf">!&gt;</span> <span class="nv">o.thisfn</span><span class="p">)</span> <span class="p">(</span><span class="nf">!&gt;</span> <span class="nv">o.selffn</span><span class="p">)])</span>
+
+<span class="nv">=&gt;</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div><div><p>We can quickly see the difference by creating another object. <code>o1</code> has been initiated with functions defined <code>o</code>. If we invoke the <code>o1</code> functions, it can be seen that the context for <code>o.thisfn</code> has changed and so it returns <code>o1.a</code> (2). While <code>o1.selffn</code> returns the value <code>o.a</code> (1)</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">o</span> <span class="p">(</span><span class="nf">obj</span> <span class="ss">:a</span> <span class="mi">1</span>
+             <span class="ss">:thisfn</span> <span class="p">(</span><span class="k">fn </span><span class="p">[]</span> <span class="nv">this.a</span><span class="p">)</span>
+             <span class="ss">:selffn</span> <span class="p">(</span><span class="k">fn </span><span class="p">[]</span> <span class="nv">self.a</span><span class="p">))</span>
+      <span class="nv">o1</span> <span class="p">(</span><span class="nf">obj</span> <span class="ss">:a</span> <span class="mi">2</span>
+             <span class="ss">:thisfn</span> <span class="nv">o.thisfn</span>
+             <span class="ss">:selffn</span> <span class="nv">o.selffn</span><span class="p">)]</span>
+  <span class="p">[(</span><span class="nf">!&gt;</span> <span class="nv">o1.thisfn</span><span class="p">)</span> <span class="p">(</span><span class="nf">!&gt;</span> <span class="nv">o1.selffn</span><span class="p">)])</span>
+
+<span class="nv">=&gt;</span> <span class="p">[</span><span class="mi">2</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div><div><p>A useful property of <code>obj</code> and <code>self</code> can be seen in the next example. Even though both have the same structure, <code>self</code> in <code>a1</code> refers to a1 whereas <code>self</code> in a2 refers to a2.b. This was due to the fact that in <code>a1</code>, a hashmap was used to construct :b as opposed to the <code>obj</code> form in <code>a2</code>.</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">a1</span> <span class="p">(</span><span class="nf">obj</span> <span class="ss">:a</span> <span class="mi">1</span>
+              <span class="ss">:b</span> <span class="p">{</span><span class="ss">:a</span> <span class="mi">2</span>         <span class="c1">;; Note {} is used</span>
+                  <span class="ss">:func</span> <span class="p">(</span><span class="k">fn </span><span class="p">[]</span> <span class="nv">self.a</span><span class="p">)})</span>
+      <span class="nv">a2</span> <span class="p">(</span><span class="nf">obj</span> <span class="ss">:a</span> <span class="mi">1</span>
+              <span class="ss">:b</span> <span class="p">(</span><span class="nf">obj</span> <span class="ss">:a</span> <span class="mi">2</span>   <span class="c1">;; Note obj is used</span>
+                      <span class="ss">:func</span> <span class="p">(</span><span class="k">fn </span><span class="p">[]</span> <span class="nv">self.a</span><span class="p">)))]</span>
+    <span class="p">[(</span><span class="nf">!&gt;</span> <span class="nv">a1.b.func</span><span class="p">)</span> <span class="p">(</span><span class="nf">!&gt;</span> <span class="nv">a2.b.func</span><span class="p">)])</span>
+
+<span class="nv">=&gt;</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div><div><a name="dot-defn"></a><h3>3.10 &nbsp;&nbsp; def.n</h3></div><div><p><code>def.n</code> allow construction of functions with the javascript dot-notation. Within the forms, there is no need to add <a href='#getter'>?</a>, <a href='#call'>?&gt;</a> and <a href='#call-on'>!&gt;</a> forms:</p></div><div><p>? getters are automatic</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="nf">?</span> <span class="nv">a.b</span><span class="p">)</span> <span class="nv">=&gt;</span> <span class="nv">a.b</span>
+</pre></div>
+</div><div><p>?&gt; call syntax is automatically applied</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="nf">?&gt;</span> <span class="nb">+ </span><span class="nv">a.b</span> <span class="nv">c.d</span><span class="p">)</span> <span class="nv">=&gt;</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">a.b</span> <span class="nv">c.d</span><span class="p">)</span>
+</pre></div>
+</div><div><p>!&gt; syntax is also automatically applied:</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="nf">!&gt;</span> <span class="nv">a.b</span> <span class="nv">c.d</span><span class="p">)</span> <span class="nv">=&gt;</span> <span class="p">(</span><span class="nf">a.b</span> <span class="nv">c.d</span><span class="p">)</span>
+</pre></div>
+</div><div><p>The <code>defn</code> function:</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="kd">defn </span><span class="nv">dostuff0</span> <span class="p">[</span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">!&gt;</span> <span class="nv">b.func</span> <span class="mi">10</span> <span class="mi">10</span><span class="p">)</span>
+  <span class="p">(</span><span class="nf">?&gt;</span> <span class="nb">+ </span><span class="nv">a.val</span> <span class="nv">b.val</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">inc </span><span class="p">(</span><span class="nf">?</span> <span class="nv">c.val</span><span class="p">)))</span>
+</pre></div>
+</div><div><p>Can be written more succinctly using <code>def.n</code>:</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="nf">def.n</span> <span class="nv">dostuff1</span> <span class="p">[</span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">]</span>
+  <span class="p">(</span><span class="nf">b.func</span> <span class="mi">10</span> <span class="mi">10</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">+ </span><span class="nv">a.val</span> <span class="nv">b.val</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">inc </span><span class="nv">c.val</span><span class="p">))</span>
+</pre></div>
+</div><div><a name="dot-fn"></a><h3>3.11 &nbsp;&nbsp; f.n</h3></div><div><p><code>f.n</code> is the equivalent dot-notation counterpart for <code>fn</code></p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">def </span><span class="nv">dostuff2</span> 
+  <span class="p">(</span><span class="nf">f.n</span> <span class="p">[</span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">]</span>
+    <span class="p">(</span><span class="nf">b.func</span> <span class="mi">10</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">+ </span><span class="nv">a.val</span> <span class="nv">b.val</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">inc </span><span class="nv">c.val</span><span class="p">)))</span>
+</pre></div>
+</div><div><a name="dot-do"></a><h3>3.12 &nbsp;&nbsp; do.n</h3></div><div><p>The <code>do.n</code> block is like <code>do</code> but allows dot-notation syntax:</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="nf">do.n</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">o</span> <span class="p">(</span><span class="nf">obj</span><span class="p">)]</span>
+    <span class="p">(</span><span class="nf">!</span> <span class="nv">o.val.a</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">(</span><span class="nf">!</span> <span class="nv">o.val.b</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">+ </span><span class="nv">o.val.a</span> <span class="nv">o.val.b</span><span class="p">)))</span>
+
+<span class="nv">=&gt;</span> <span class="mi">3</span>
+</pre></div>
+</div><div><a name="raw"></a><h3>3.13 &nbsp;&nbsp; raw forms</h3></div><div><p>For those that want to write clojurescript with <code>{}</code> interpreted as js objects and <code>&#91;&#93;</code> interpreted as arrays, then the raw js forms are very handy. <code>def&#42;</code>, <code>def&#42;n</code>, <code>f&#42;n</code> and <code>do&#42;n</code> allow this. The same function <code>raw-fn</code> can be defined the following four ways:</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="k">def </span><span class="nv">raw-fn</span> <span class="p">(</span><span class="nf">f*n</span> <span class="p">[</span><span class="nv">o</span><span class="p">]</span> <span class="p">(</span><span class="nf">!</span> <span class="nv">o.val</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">])))</span>
+
+<span class="p">(</span><span class="nf">def*</span> <span class="nv">raw-fn</span> <span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">o</span><span class="p">]</span> <span class="p">(</span><span class="nf">!</span> <span class="nv">o.val</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">])))</span>
+
+<span class="p">(</span><span class="nf">def*n</span> <span class="nv">raw-fn</span> <span class="p">[</span><span class="nv">o</span><span class="p">]</span> <span class="p">(</span><span class="nf">!</span> <span class="nv">o.val</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">]))</span>
+
+<span class="p">(</span><span class="nf">do*n</span> <span class="p">(</span><span class="k">def </span><span class="nv">raw-fn</span> <span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">o</span><span class="p">]</span> <span class="p">(</span><span class="nf">!</span> <span class="nv">o.val</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">]))))</span>
+</pre></div>
+</div><div><p>where</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="nf">raw-fn</span> <span class="p">(</span><span class="nf">obj</span><span class="p">))</span>
+
+<span class="nv">=&gt;</span> <span class="p">(</span><span class="nf">obj</span> <span class="ss">:val</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div><div><p>Within the raw js form, <code>self</code> refers to the top level object.</p></div><div><div class="highlight"><pre><span class="p">(</span><span class="nf">def*</span> <span class="nv">o</span> <span class="p">(</span><span class="nf">obj</span> <span class="ss">:a</span> <span class="mi">10</span>
+             <span class="ss">:b</span> <span class="p">{</span><span class="ss">:a</span> <span class="mi">20</span>
+                 <span class="ss">:func</span> <span class="p">(</span><span class="k">fn </span><span class="p">[]</span> <span class="nv">self.a</span><span class="p">)}))</span>
+
+<span class="p">(</span><span class="nf">!&gt;</span> <span class="nv">o.b.func</span><span class="p">)</span>
+
+<span class="nv">=&gt;</span> <span class="mi">10</span>
+</pre></div>
+</div><div><p>The raw js forms will only recognise the <code>cljs.core</code> vector binding constructs: <code>let</code>, <code>loop</code>, <code>for</code>, <code>doseq</code>, <code>if-let</code> and <code>when-let</code>. Any custom macros within a raw form will run into problems.</p></div></section></body><script type="text/javascript">var metas = document.getElementsByTagName('meta');
+var i;
+if (navigator.userAgent.match(/iPhone/i)) {
+  for (i=0; i<metas.length; i++) {
+    if (metas[i].name == "viewport") {
+      metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+    }
+  }
+  document.addEventListener("gesturestart", gestureStart, false);
+}
+function gestureStart() {
+  for (i=0; i<metas.length; i++) {
+    if (metas[i].name == "viewport") {
+      metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+    }
+  }
+}</script><script>var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-31320512-2']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();</script></html>
