@@ -2,10 +2,8 @@
 
 [[:chapter {:title "Introduction"}]]
 
-"[purnam.core](https://www.github.com/purnam/purnam.core), along [purnam.test](https://www.github.com/purnam/purnam.test) and [purnam.native](https://www.github.com/purnam/purnam.native) form the nucleus of the [purnam]([purnam.core](https://www.github.com/purnam/purnam) extensions suite - designed to provide better clojurescript/javascript interop.
+"[purnam.core](https://www.github.com/purnam/purnam.core), along [purnam.test](https://www.github.com/purnam/purnam.test) and [purnam.native](https://www.github.com/purnam/purnam.native) form the nucleus of the [purnam](https://www.github.com/purnam/purnam) extensions suite - designed to provide better clojurescript/javascript interop.
 "
-
-
 
 [[:chapter {:title "Installation"}]]
 
