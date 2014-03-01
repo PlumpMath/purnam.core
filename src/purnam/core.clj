@@ -17,12 +17,18 @@
 (defmacro ?> [& args]
   (apply list (map expand args)))
 
-(defmacro ! [sym & [val]]
-  (let [[var & ks] (split-syms sym)]
-    (list 'purnam.common/aset-in (parse-var var)
-          (vec (map parse-sub-exp ks))
-          (expand val))))
-
+(defmacro ! 
+  ([sym]
+    (let [[var & ks] (split-syms sym)]
+      (list 'purnam.common/adelete-in-obj 
+            (parse-var var)
+          (vec (map parse-sub-exp ks)))))
+  ([sym & [val]]
+    (let [[var & ks] (split-syms sym)]
+      (list 'purnam.common/aset-in-obj (parse-var var)
+            (vec (map parse-sub-exp ks))
+            (expand val)))))
+            
 (defmacro !> [sym & args] (expand-fn sym args))
 
 (defmacro f.n [& body] (construct-fn identity body))

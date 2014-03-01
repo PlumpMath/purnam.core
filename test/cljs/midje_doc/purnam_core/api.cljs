@@ -1,9 +1,11 @@
 (ns midje-doc.purnam-core.api
   (:require [purnam.test])
-  (:use-macros [purnam.core :only [? ?> ! !> f.n def.n do.n
+  (:use-macros [purnam.common :only [set-safe-aget]]
+               [purnam.core :only [? ?> ! !> f.n def.n do.n
                                  obj arr def* do*n def*n f*n]]
                [purnam.test :only [fact facts]]))
 
+(set-safe-aget true)
 
 [[:section {:title "init" :tag "init-core"}]]
 
@@ -11,7 +13,7 @@
 
 (comment
   (:use-macros [purnam.core :only [? ?> ! !> f.n def.n do.n
-                                   obj arr def* do*n def*n f*n]]))
+                                  obj arr def* do*n def*n f*n]]))
 
 [[:section {:title "obj"}]]
 
@@ -283,7 +285,7 @@
 
   (def*n raw-fn [o] (! o.val [1 2 3 4 5]))
 
-  (do*n (def raw-fn (fn [o] (! o.val [1 2 3 4 5]))))
+  (do*n (def raw-fn (fn [o] (! o.val [1 2 3 4 5]) o)))
 
   "where"
 
@@ -298,4 +300,7 @@
 
   "The raw js forms will only recognise the `cljs.core` vector binding constructs: `let`, `loop`, `for`, `doseq`, `if-let` and `when-let`. Any custom macros within a raw form will run into problems."
 )
+
+
+(set-safe-aget false)
 

@@ -23,16 +23,16 @@
 ;; Macros
 (fact "!"
   (macroexpand-1 '(j/! <OBJ>.<V1> <VALUE>))
-  => '(purnam.common/aset-in <OBJ> ["<V1>"] <VALUE>)
+  => '(purnam.common/aset-in-obj <OBJ> ["<V1>"] <VALUE>)
 
   (macroexpand-1 '(j/! <OBJ>.<V1>.<V2> <VALUE>))
-  => '(purnam.common/aset-in <OBJ> ["<V1>" "<V2>"] <VALUE>)
+  => '(purnam.common/aset-in-obj <OBJ> ["<V1>" "<V2>"] <VALUE>)
 
   (macroexpand-1 '(j/! <OBJ>.|<V1>|.<V2> <VALUE>))
-  => '(purnam.common/aset-in <OBJ> [<V1> "<V2>"] <VALUE>)
+  => '(purnam.common/aset-in-obj <OBJ> [<V1> "<V2>"] <VALUE>)
 
   (macroexpand-1 '(j/! <OBJ>.|<V1>.<V2>|.<V3> <VALUE>))
-  => '(purnam.common/aset-in
+  => '(purnam.common/aset-in-obj
        <OBJ>
        [(purnam.common/aget-in <V1> ["<V2>"]) "<V3>"] <VALUE>))
 
