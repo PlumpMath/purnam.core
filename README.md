@@ -8,7 +8,7 @@ Friendly javascript interop for clojurescript
 
 Stable Version: 
 
-    [im.chit/purnam.core "0.4.1"]
+    [im.chit/purnam.core "0.4.3"]
 
 Documentation:
 
