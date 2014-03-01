@@ -19,11 +19,13 @@
 
 (defmacro ! 
   ([sym]
+    (if-not (symbol? sym) (throw (Exception. (str sym " is not a symbol"))))
     (let [[var & ks] (split-syms sym)]
       (list 'purnam.common/adelete-in-obj 
             (parse-var var)
           (vec (map parse-sub-exp ks)))))
   ([sym & [val]]
+    (if-not (symbol? sym) (throw (Exception. (str sym " is not a symbol"))))
     (let [[var & ks] (split-syms sym)]
       (list 'purnam.common/aset-in-obj (parse-var var)
             (vec (map parse-sub-exp ks))
